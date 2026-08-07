@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="signin.css">
+</head>
+
+<body>
+
+    <section class="signin-section">
+        <div class="signin-container">
+            <h1>Welcome Back</h1>
+            <p>Sign in to continue</p>
+
+            <form novalidate>
+                <div class="input-box">
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter your email" required maxlength="50">
+                </div>
+
+                <div class="input-box">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter your password" required minlength="8" maxlength="20">
+                </div>
+
+                <div class="options">
+                    <label>
+                        <input type="checkbox">
+                        Remember Me
+                    </label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+
+                <p class="signup-link">
+                    Don’t have an account? <a href="signup.html">Sign Up</a>
+                </p>
+
+                <a href="" type="button" id="button">Sign In</a>
+            </form>
+        </div>
+    </section>
+
+    <script src="signin.js"></script>
+</body>
+
+</html>

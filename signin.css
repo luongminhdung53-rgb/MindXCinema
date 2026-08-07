@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.signin-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin-container {
+  background: white;
+  color: black;
+  width: 400px;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.signin-container h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.signin-container p {
+  text-align: center;
+  margin-bottom: 25px;
+  color: gray;
+}
+
+.input-box {
+  margin-bottom: 20px;
+}
+
+.input-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus {
+  border-color: gold;
+}
+
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.options a {
+  text-decoration: none;
+  color: black;
+}
+
+.options a:hover {
+  color: gold;
+}
+
+/* Button */
+#button{
+    display: inline-block;
+    padding: 12px 24px;
+    width: 320px;
+    background-color: gold;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    border: 2px solid transparent;
+}
+
+#button:hover{
+    background-color: black;
+    color: gold;
+    transform: scale(1.05);
+}
+
+.signup-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.signup-link a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  color: gold;
+}
