@@ -1,8 +1,6 @@
-let fullNameInput = document.querySelector('input[placeholder="Enter your full name"]');
-let emailInput = document.querySelector('input[type="email"]');
-let passwordInput = document.querySelector('input[placeholder="Enter your password"]');
-let confirmPasswordInput = document.querySelector('input[placeholder="Confirm your password"]');
-let termsCheckbox = document.querySelector('.terms input[type="checkbox"]');
+let registerForm = document.querySelector('form');
+    let usernameInput = document.getElementById('username');
+    let passwordInput = document.getElementById('password');
 let signUpButton = document.getElementById('button');
 
 signUpButton.addEventListener('click', function (event) {
@@ -56,7 +54,19 @@ signUpButton.addEventListener('click', function (event) {
     alert("You must agree to the Terms & Conditions to proceed!");
     return;
   }
-
+let listAccounts = JSON.parse(localStorage.getItem('accounts')) || [];
+let ifUserExist = listAccounts.some(account => account.username === username);
+if (isUserExist) {
+  alert("Account existed, try again")
+} else {
+  let newUser ={
+    username: username,
+    password: password
+  };
+listAccounts.push(newUser);
+localStorage.setItem('accounts', JSON.stringify(listAccounts));
   alert("Account created successfully! Redirecting to login page...");
-  window.location.href = "11.html";
+  registerForm.reset();
+  window.location.href = "signin.html";
+}
 });
