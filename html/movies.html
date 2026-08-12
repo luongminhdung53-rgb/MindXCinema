@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MINDX CINEMAS - Browse Movies</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo">MINDX CINEMAS</a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="movies.html" class="nav-item active">Movies</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <span id="user-display" class="user-display"></span>
+      <a href="signin.html" id="auth-btn" class="btn btn-primary">Sign In</a>
+    </div>
+  </header>
+
+  <main class="main-content explore-page">
+    <div class="explore-header">
+      <h2>Explore Movies</h2>
+      <input type="text" id="search-input" placeholder="Search movies..." class="search-input" />
+    </div>
+    <div class="movie-grid" id="movie-grid"></div>
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-header" id="modal-hero">
+        <div class="modal-header-content">
+          <h2 id="modal-title">Movie Title</h2>
+          <button class="btn btn-primary" id="modal-play-btn">▶ Play</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-metadata">
+          <span class="badge" id="modal-year">2024</span>
+          <span class="badge" id="modal-type">Movie</span>
+          <span class="imdb-rating" id="modal-rating">⭐ IMDb: N/A</span>
+        </div>
+        <p id="modal-plot">Loading plot details...</p>
+        <p id="modal-actors" class="modal-subtext"><strong>Cast:</strong> Loading...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

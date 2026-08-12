@@ -4,18 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="signup.css">
+    <title>MINDX CINEMAS - Sign Up</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="auth-body">
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="logo">MINDX CINEMAS</a>
+    </header>
 
     <section class="signup-section">
         <div class="signup-container">
             <h1>Create Account</h1>
             <p>Join today and get started</p>
 
-            <form id="signupForm" novalidate>
+            <form id="signup-form" novalidate>
                 <div class="input-box">
                     <label>Full Name</label>
                     <input type="text" id="username" placeholder="Enter your full name">
@@ -24,13 +32,13 @@
 
                 <div class="input-box">
                     <label>Email</label>
-                    <input type="email" id="email" placeholder="Enter your email">
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
                     <small class="error-msg" id="emailError"></small>
                 </div>
 
                 <div class="input-box">
                     <label>Password</label>
-                    <input type="password" id="password" placeholder="Enter your password">
+                    <input type="password" id="signup-password" placeholder="Enter your password" required>
                     <small class="error-msg" id="passwordError"></small>
                 </div>
 
@@ -45,14 +53,14 @@
                     <span>I agree to the Terms & Conditions</span>
                 </div>
                 
-               <a href="11.html" type="button" id="button">Sign Up</a>
+                <button type="submit" id="button">Sign Up</button>
 
                 <p class="login-link">Already have an account? <a href="signin.html">Log In</a></p>
             </form>
         </div>
     </section>
     
-    <script src="signup.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
