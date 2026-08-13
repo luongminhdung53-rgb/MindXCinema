@@ -1,58 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MINDX CINEMAS - Sign In</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MINDX CINEMAS - Sign In</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="auth-body">
+  <header class="navbar">
+    <h2 class="logo">MINDX CINEMAS</h2>
+  </header>
 
-    <!-- Navbar -->
-    <header class="navbar">
-        <a href="index.html" class="logo">MINDX CINEMAS</a>
-    </header>
-
-    <section class="signin-section">
-        <div class="signin-container">
-            <h1>Welcome Back</h1>
-            <p>Sign in to continue</p>
-
-            <form id="login-form" novalidate>
-                <div class="input-box">
-                    <label>Email</label>
-                    <input type="email" id="signin-email" placeholder="Enter your email" required maxlength="50">
-                </div>
-
-                <div class="input-box">
-                    <label>Password</label>
-                    <input type="password" id="signin-password" placeholder="Enter your password" required minlength="8" maxlength="20">
-                </div>
-
-                <div class="options">
-                    <label>
-                        <input type="checkbox">
-                        Remember Me
-                    </label>
-                    <a href="#">Forgot Password?</a>
-                </div>
-
-                <button type="submit" id="button">Sign In</button>
-
-                <p class="signup-link">
-                    Don’t have an account? <a href="signup.html">Sign Up</a>
-                </p>
-            </form>
+  <section class="signin-section">
+    <div class="signin-container">
+      <h1>Sign In</h1>
+      
+      <form id="signin-form">
+        <div class="input">
+          <label for="email">Email address</label>
+          <input type="email" id="email" required placeholder="Enter your email">
         </div>
-    </section>
+        
+        <div class="input">
+          <label for="password">Password</label>
+          <input type="password" id="password" required placeholder="Enter your password">
+        </div>
 
-    <script src="./js/script.js"></script>
+        <button type="submit" class="submit">Sign In</button>
+      </form>
+
+      <div class="signup-link">
+        New to MindX Cinemas? <a href="signup.html">Sign up now</a>.
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
-
 </html>

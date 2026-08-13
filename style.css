@@ -4,266 +4,344 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
-
-:root {
-  --bg-color: #141414;
-  --card-bg: #181818;
-  --primary-red: #e50914;
-  --accent-gold: gold;
-  --text-white: #ffffff;
-  --text-gray: #aaaaaa;
-}
-
 body {
-  background-color: var(--bg-color);
-  color: var(--text-white);
-  overflow-x: hidden;
+  background-color: #141414;
+  color: #ffffff;
   min-height: 100vh;
+  overflow-x: hidden; 
 }
-
-/* ==========================================================
-   2. NAVBAR
-   ========================================================== */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 68px;
-  padding: 0 4%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 100;
-  background: linear-gradient(180deg, rgba(0,0,0,0.8) 10%, transparent);
-  transition: background-color 0.3s;
-}
-
-.navbar.scrolled {
-  background-color: var(--bg-color);
+  padding: 15px 50px;
+  background-color: #141414;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .logo {
-  color: var(--primary-red);
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-decoration: none;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.user-display {
-  font-size: 0.9rem;
-  color: var(--text-gray);
-}
-
-/* ==========================================================
-   3. SIGN IN & SIGN UP (YOUR ORIGINAL FORM STYLES)
-   ========================================================== */
-.signin-section,
-.signup-section {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #141414;
-  padding: 80px 20px 40px 20px;
-}
-
-.signin-container,
-.signup-container {
-  background: #ffffff;
-  color: #000000;
-  width: 100%;
-  max-width: 400px;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-.signin-container h1,
-.signup-container h1 {
-  text-align: center;
-  margin-bottom: 10px;
-  color: #000000;
-}
-
-.signin-container p,
-.signup-container p {
-  text-align: center;
-  margin-bottom: 25px;
-  color: gray;
-}
-
-/* Inputs */
-.input-box {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.input-box label {
-  display: block;
-  margin-bottom: 8px;
+  font-size: 26px;
   font-weight: bold;
-  color: #000000;
-}
-
-.input-box input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  outline: none;
-  transition: 0.3s;
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.input-box input:focus {
-  border-color: gold;
-}
-
-.error-msg {
   color: #e50914;
-  font-size: 12px;
-  margin-top: 4px;
-  display: block;
-}
-
-/* Options & Terms */
-.options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #000000;
-}
-
-.options a {
   text-decoration: none;
-  color: black;
+  letter-spacing: 1px;
 }
-
-.options a:hover {
-  color: gold;
-}
-
-.terms {
+.nav-links {
   display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  color: #000000;
-  font-size: 14px;
+  list-style: none;
+  gap: 20px;
 }
 
-.terms input {
-  margin-right: 10px;
-}
-
-/* Submit Button (#button) */
-#button {
-  display: block;
-  text-align: center;
-  padding: 12px 24px;
-  width: 100%;
-  background-color: gold;
-  color: black;
+.nav-links a {
   text-decoration: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;
-  transition: 0.3s ease;
-  border: 2px solid transparent;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-#button:hover {
-  background-color: black;
-  color: gold;
-  transform: scale(1.05);
-}
-
-/* Page Navigation Links */
-.signup-link,
-.login-link {
-  margin-top: 20px;
-  text-align: center;
-  color: gray;
+  color: #e5e5e5;
   font-size: 14px;
-}
-
-.signup-link a,
-.login-link a {
-  color: black;
+  transition: color 0.3s;
+  background-color: #e50914;
+  padding: 7px 17px;
+  border-radius: 4px;
   font-weight: bold;
+}
+
+.nav-links a:hover {
+  background-color: #ffffff;
+  font-weight: bold;
+  color: #e50914;
+}
+
+.btn-in {
+  background-color: #e50914;
+  color: white;
+  padding: 7px 17px;
+  border-radius: 4px;
   text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.2s;
 }
 
-.signup-link a:hover,
-.login-link a:hover {
-  color: gold;
+.btn-in:hover {
+  background-color: white;
+  color: #e5e5e5;
 }
 
-/* ==========================================================
-   4. MOVIE LAYOUT & HERO COMPONENTS
-   ========================================================== */
-.hero-container {
-  min-height: 80vh;
+.hero-banner {
+  height: 80vh;
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
-  padding: 100px 4% 40px 4%;
+  padding: 0 50px;
+  background-image: linear-gradient(to top, #141414 5%, transparent 10%), linear-gradient(to right, #141414 10%, transparent 100%), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww')
 }
 
 .hero-content {
-  max-width: 600px;
+  max-width: 500px;
 }
 
 .hero-content h1 {
-  font-size: 2.8rem;
+  font-size: 50px;
   margin-bottom: 15px;
 }
 
 .hero-content p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #d2d2d2;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #cccccc;
   margin-bottom: 20px;
 }
 
-/* Movie Cards & Grid */
-.movie-grid, 
+.movie-rows {
+  padding-left: 50px;
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+}
+
+.row-container { margin-bottom: 30px; }
+.row-container h2 { font-size: 1.4rem; margin-bottom: 10px; }
+
 .movie-row {
   display: flex;
-  gap: 15px;
-  padding: 20px 4%;
+  gap: 12px;
   overflow-x: auto;
+  padding: 10px 0;
+}
+
+.btn-all {
+  background-color: #e50914;
+  color: white;
+  padding: 7px 17px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.btn-all:hover {
+  background-color: white;
+  color: #e50914;
+}
+
+.explore-page {
+  padding: 100px 50px 50px 50px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.explore-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.search-input {
+  padding: 10px 16px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #222222;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #e50914;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  width: 100%;
 }
 
 .movie-card {
-  min-width: 160px;
-  height: 240px;
-  background-color: var(--card-bg);
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  height: auto;
+  background-color: #181818;
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .movie-card:hover {
   transform: scale(1.05);
+  z-index: 5;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
 }
 
 .movie-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.signin-section,
+.signup-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; 
+}
+
+.signin-container,
+.signup-container {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 60px 68px;
+  width: 450px;
+  border-radius: 8px;
+}
+
+.signin-container h1,
+.signup-container h1 {
+  font-size: 32px;
+  margin-bottom: 28px;
+  font-weight: bold;
+}
+
+.input {
+  margin-bottom: 16px;
+}
+
+.input label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #8c8c8c;
+}
+
+.input input {
+  width: 100%;
+  padding: 16px;
+  background-color: #333333;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+}
+
+.input input:focus {
+  background-color: #454545;
+  outline: none;
+}
+
+.submit {
+  width: 100%;
+  padding: 16px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background-color 0.2s;
+}
+
+.submit:hover {
+  background-color: #f40612;
+}
+
+.signup-link,
+.login-link {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #737373;
+}
+
+.signup-link a,
+.login-link a {
+  color: white;
+  text-decoration: none;
+}
+
+.signup-link a:hover,
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.user-menu-container { position: relative; }
+.user-avatar-btn {
+  width: 36px;
+  height: 36px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.user-dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 45px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid #333;
+  width: 180px;
+  border-radius: 4px;
+}
+
+.user-dropdown-menu.show { display: block; }
+.dropdown-header { padding: 10px; font-size: 12px; color: #aaa; border-bottom: 1px solid #333; }
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+}
+.dropdown-item:hover { background-color: #222; }
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 2000; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.overlay.active { opacity: 1; pointer-events: auto; }
+
+.card {
+  background: #181818; width: 90%; max-width: 650px;
+  border-radius: 8px; overflow: hidden; position: relative;
+}
+.close {
+  position: absolute; top: 15px; right: 15px;
+  background: #000; color: #fff; border: none;
+  font-size: 24px; width: 36px; height: 36px;
+  border-radius: 50%; cursor: pointer; z-index: 10;
+}
+.header { height: 250px; background-size: cover; background-position: center; display: flex; align-items: flex-end; padding: 20px; }
+.detail-body { padding: 20px; }
+.detail-metadata { display: flex; gap: 10px; margin-bottom: 12px; }
+.badge { background: #333; padding: 3px 8px; border-radius: 3px; font-size: 12px; }
+.imdb-rating { color: gold; font-weight: bold; }
+
+.hidden {
+  display: none !important;
 }
