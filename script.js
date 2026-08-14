@@ -23,7 +23,7 @@ function setupPageSpecificFeatures() {
 
   if (isBrowsePage) {
     initExplorePage();
-  } 
+  }
 
   if (isHomePage) {
     initHomePageRows();
@@ -222,7 +222,7 @@ async function openPopup(imdbID) {
   document.getElementById('rating').textContent = `⭐ IMDb: ${details.imdbRating || 'N/A'}`;
   document.getElementById('plot').textContent = details.Plot;
   document.getElementById('actors').innerHTML = `<strong>Cast:</strong> ${details.Actors}`;
-  
+
   let hero = document.getElementById('hero');
   if (details.Poster !== 'N/A') {
     hero.style.backgroundImage = `linear-gradient(to top, #181818, transparent), url('${details.Poster}')`;
