@@ -1,8 +1,8 @@
 const API_KEY = 'b2d13de8';
 const DEFAULT_MOVIES = ['Avengers', 'Batman', 'Inception', 'Spider-Man', 'Interstellar', 'Matrix'];
 
-const detail = document.getElementById('detail');
-const closeBtn = document.getElementById('close');
+let detail = document.getElementById('detail');
+let closeBtn = document.getElementById('close');
 
 document.addEventListener('DOMContentLoaded', onPageLoad);
 
@@ -18,8 +18,8 @@ function setupUserAccountUI() {
 }
 
 function setupPageSpecificFeatures() {
-  const isBrowsePage = document.getElementById('movie-grid') !== null;
-  const isHomePage = document.querySelector('.movie-rows') !== null;
+  let isBrowsePage = document.getElementById('movie-grid') !== null;
+  let isHomePage = document.querySelector('.movie-rows') !== null;
 
   if (isBrowsePage) {
     initExplorePage();
@@ -40,21 +40,21 @@ function setupPopupEvents() {
 }
 
 function handleBackgroundClick(event) {
-  const clickedOutside = event.target === detail;
+  let clickedOutside = event.target === detail;
   if (clickedOutside) {
     closePopup();
   }
 }
 
 function initAuthUI() {
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-  const signinLink = document.getElementById('signin-link');
-  const userMenu = document.getElementById('user-menu');
-  const avatarBtn = document.getElementById('avatar-btn');
-  const emailDisplay = document.getElementById('user-email-display');
-  const dropdownMenu = document.getElementById('dropdown-menu');
-  const logoutBtn = document.getElementById('logout-btn');
+  let signinLink = document.getElementById('signin-link');
+  let userMenu = document.getElementById('user-menu');
+  let avatarBtn = document.getElementById('avatar-btn');
+  let emailDisplay = document.getElementById('user-email-display');
+  let dropdownMenu = document.getElementById('dropdown-menu');
+  let logoutBtn = document.getElementById('logout-btn');
 
   if (currentUser) {
     if (signinLink) signinLink.classList.add('hidden');
@@ -86,13 +86,13 @@ function initAuthUI() {
 }
 
 function initAuthFormListeners() {
-  const signinForm = document.getElementById('signin-form');
-  const signupForm = document.getElementById('signup-form');
+  let signinForm = document.getElementById('signin-form');
+  let signupForm = document.getElementById('signup-form');
 
   if (signinForm) {
     signinForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = document.getElementById('email').value;
+      let email = document.getElementById('email').value;
       localStorage.setItem('currentUser', JSON.stringify({ email }));
       window.location.href = 'main.html';
     });
@@ -101,7 +101,7 @@ function initAuthFormListeners() {
   if (signupForm) {
     signupForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = document.getElementById('signup-email').value;
+      let email = document.getElementById('signup-email').value;
       localStorage.setItem('currentUser', JSON.stringify({ email }));
       window.location.href = 'main.html';
     });
@@ -130,10 +130,10 @@ function fetchMovieDetails(imdbID) {
 }
 
 async function initExplorePage() {
-  const movieGrid = document.getElementById('movie-grid');
-  const searchInput = document.getElementById('search-input');
+  let movieGrid = document.getElementById('movie-grid');
+  let searchInput = document.getElementById('search-input');
 
-  const initialMovies = await fetchMoviesByQuery('Marvel');
+  let initialMovies = await fetchMoviesByQuery('Marvel');
   renderGrid(initialMovies, movieGrid);
 
   let debounceTimer;
@@ -141,9 +141,9 @@ async function initExplorePage() {
     searchInput.addEventListener('input', (e) => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(async () => {
-        const query = e.target.value.trim();
+        let query = e.target.value.trim();
         if (query.length > 2) {
-          const results = await fetchMoviesByQuery(query);
+          let results = await fetchMoviesByQuery(query);
           renderGrid(results, movieGrid);
         } else if (query.length === 0) {
           renderGrid(initialMovies, movieGrid);
@@ -154,10 +154,10 @@ async function initExplorePage() {
 }
 
 async function initHomePageRows() {
-  const rowsContainer = document.querySelector('.movie-rows');
+  let rowsContainer = document.querySelector('.movie-rows');
   if (!rowsContainer) return;
 
-  const categories = [
+  let categories = [
     { title: 'Trending Now', query: 'Avengers' },
     { title: 'Action Blockbusters', query: 'Batman' },
     { title: 'Sci-Fi Classics', query: 'Star Wars' }
@@ -165,9 +165,9 @@ async function initHomePageRows() {
 
   rowsContainer.innerHTML = '';
 
-  for (const cat of categories) {
-    const movies = await fetchMoviesByQuery(cat.query);
-    const rowHTML = `
+  for (let cat of categories) {
+    let movies = await fetchMoviesByQuery(cat.query);
+    let rowHTML = `
       <div class="row-container">
         <h2>${cat.title}</h2>
         <div class="movie-row" id="row-${cat.query}">
@@ -192,7 +192,7 @@ function renderGrid(movies, container) {
 }
 
 function createMovieCardHTML(movie) {
-  const poster = movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/300x450?text=No+Poster';
+  let poster = movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/300x450?text=No+Poster';
   return `
     <div class="movie-card" data-id="${movie.imdbID}">
       <img src="${poster}" alt="${movie.Title}" loading="lazy" />
@@ -206,14 +206,14 @@ function createMovieCardHTML(movie) {
 function attachCardClickEvents() {
   document.querySelectorAll('.movie-card').forEach(card => {
     card.addEventListener('click', async () => {
-      const imdbID = card.getAttribute('data-id');
+      let imdbID = card.getAttribute('data-id');
       if (imdbID) openPopup(imdbID);
     });
   });
 }
 
 async function openPopup(imdbID) {
-  const details = await fetchMovieDetails(imdbID);
+  let details = await fetchMovieDetails(imdbID);
   if (!details) return;
 
   document.getElementById('title').textContent = details.Title;
@@ -223,7 +223,7 @@ async function openPopup(imdbID) {
   document.getElementById('plot').textContent = details.Plot;
   document.getElementById('actors').innerHTML = `<strong>Cast:</strong> ${details.Actors}`;
   
-  const hero = document.getElementById('hero');
+  let hero = document.getElementById('hero');
   if (details.Poster !== 'N/A') {
     hero.style.backgroundImage = `linear-gradient(to top, #181818, transparent), url('${details.Poster}')`;
   } else {

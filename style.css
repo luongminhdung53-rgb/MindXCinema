@@ -315,6 +315,9 @@ body {
   cursor: pointer;
 }
 .dropdown-item:hover { background-color: #222; }
+.logout-btn{
+align-items: center;
+}
 
 .overlay {
   position: fixed;
